@@ -32,3 +32,79 @@ Administrador de Seguridad
 Descripción: usuario especializado en la protección de la infraestructura y el control de accesos.  
 Características: acceso restringido a áreas críticas; responsable de la administración de usuarios, contraseñas y mecanismos de seguridad.  
 Acciones disponibles: configuración de 2FA, gestión de permisos, y consulta de registros de acceso (logs).
+
+
+Requerimientos de interfaces externas
+9.1 Interfaces de Usuario
+El sistema dispondrá de una interfaz web clara e intuitiva, orientada a simplificar las tareas de los administradores y mejorar la experiencia de uso.
+La interfaz deberá ser adaptable a distintas resoluciones de pantalla.
+Dispondrá de:
+Pantalla de inicio de sesión.
+Panel principal.
+Formularios de registro.
+Pantallas de consulta.
+Formularios de edición.
+Reportes.
+Mensajes de confirmación y error.
+9.2 Interfaces de Hardware
+El sistema será compatible con los siguientes dispositivos:
+Computadoras de escritorio.
+Notebooks.
+Impresoras láser.
+Impresoras térmicas para emisión de comprobantes.
+Servidor de base de datos.
+9.3 Interfaces de Software
+El sistema interactuará con los siguientes componentes de software:
+Sistema Operativo
+Windows 10.
+Windows 11.
+Fedora Workstation 44.
+Servidor Web
+Apache.
+Nginx.
+Motor de Base de Datos
+MySQL 8.0 o superior.
+Lenguaje de desarrollo
+Python.
+9.4 Interfaces de Comunicación
+Las comunicaciones entre el cliente y el servidor deberán efectuarse mediante el protocolo HTTPS.
+El sistema utilizará los siguientes protocolos y tecnologías de comunicación:
+TCP/IP.
+HTTP.
+HTTPS.
+SSL/TLS.
+Para el envío de notificaciones, podrá utilizar servicios de correo electrónico mediante el protocolo SMTP.
+
+Requerimientos no funcionales
+10.1 Rendimiento
+RNF-01
+El sistema deberá proporcionar respuestas a cualquier consulta en un tiempo menor a tres segundos en al menos el 95% de las operaciones habituales.
+RNF-02
+El sistema deberá soportar un mínimo de 50 usuarios concurrentes sin que se observe una degradación significativa del rendimiento.
+10.2 Seguridad
+RNF-03
+El acceso al sistema deberá efectuarse mediante autenticación con usuario y contraseña.
+RNF-04
+El sistema deberá admitir autenticación de doble factor (2FA).
+RNF-05
+Las contraseñas deberán almacenarse mediante algoritmos de hash seguros.
+RNF-06
+Todas las operaciones relevantes deberán quedar registradas en un historial de auditoría.
+10.3 Disponibilidad
+RNF-07
+El sistema deberá permanecer disponible al menos el 99% del tiempo durante el horario laboral.
+10.4 Confiabilidad
+RNF-08
+El sistema deberá generar copias de seguridad automáticas de la base de datos cada 24 horas.
+RNF-09
+El sistema deberá permitir la recuperación de la información ante fallos del servidor.
+10.5 Usabilidad
+RNF-10
+Un usuario administrador deberá poder aprender a utilizar el sistema con una capacitación inferior a dos horas.
+RNF-11
+La interfaz deberá conservar un diseño homogéneo en todas las pantallas.
+10.6 Mantenibilidad
+RNF-12
+El sistema deberá desarrollarse bajo una arquitectura modular que facilite futuras modificaciones.
+RNF-13
+La documentación técnica deberá mantenerse actualizada durante todo el ciclo de vida del proyecto.
