@@ -1,0 +1,34 @@
+Funcionalidades del producto
+El sistema organiza sus capacidades en módulos funcionales que cubren el ciclo completo de negocio de "El buen descanso":
+- Gestión de Solicitudes de Afiliación: captura y procesamiento de las solicitudes de ingreso de interesados.  
+- Gestión de Personas: mantenimiento de los datos demográficos maestros.  
+- Gestión de Socios: administración de los perfiles de clientes activos y su estado contractual.  
+- Gestión del Núcleo Familiar: administración de vínculos y dependientes asociados al titular.  
+- Gestión de Pagos: registro, seguimiento y consulta de obligaciones financieras.  
+- Gestión de Espacios Funerarios: administración del inventario de parcelas, panteones y nichos.  
+- Administración de Usuarios: gestión de cuentas, roles y permisos internos.  
+- Seguridad y Control de Accesos: aplicación de políticas de autenticación, autorización y auditoría.  
+- Consultas y Reportes: generación de información y reportes para la toma de decisiones.
+
+Perfiles de usuario y responsabilidades
+El sistema será utilizado por distintos perfiles con permisos y responsabilidades definidos para preservar la integridad y seguridad de la información.
+
+Interesado
+Descripción: persona externa que inicia el proceso de afiliación.  
+Características: uso ocasional; acceso limitado al formulario de solicitud web; sin permisos administrativos.  
+Acciones disponibles: envío y seguimiento básico de la Solicitud de Afiliación.
+
+Socio
+Descripción: usuario afiliado con servicios contratados que necesita gestionar su relación con la empresa.  
+Características: uso frecuente; consulta de datos personales; acceso al historial de pagos; visualización del estado del núcleo familiar y del espacio funerario asignado.  
+Acciones disponibles: gestión y consulta de su perfil de socio, núcleo familiar y pagos; acceso a consultas generales.
+
+Administrador
+Descripción: responsable operativo del sistema.  
+Características: usuario permanente con el mayor nivel de privilegios; encargado del mantenimiento y actualización de la información.  
+Acciones disponibles: gestión de solicitudes, personas, socios, núcleo familiar, pagos, espacios funerarios; administración de usuarios y reportes.
+
+Administrador de Seguridad
+Descripción: usuario especializado en la protección de la infraestructura y el control de accesos.  
+Características: acceso restringido a áreas críticas; responsable de la administración de usuarios, contraseñas y mecanismos de seguridad.  
+Acciones disponibles: configuración de 2FA, gestión de permisos, y consulta de registros de acceso (logs).
