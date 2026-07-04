@@ -32,3 +32,195 @@ Administrador de Seguridad
 Descripción: usuario especializado en la protección de la infraestructura y el control de accesos.  
 Características: acceso restringido a áreas críticas; responsable de la administración de usuarios, contraseñas y mecanismos de seguridad.  
 Acciones disponibles: configuración de 2FA, gestión de permisos, y consulta de registros de acceso (logs).
+=======
+1. Propósito
+
+El presente documento tiene como propósito especificar los requerimientos funcionales y no funcionales del Sistema de Gestión Funeraria "El Buen Descanso", correspondiente a la versión 1.0 del software.
+Este documento establece las funcionalidades, restricciones, reglas de negocio y requerimientos necesarios para el desarrollo del sistema, sirviendo como base para las etapas de análisis, diseño, implementación, pruebas e instalación.
+El alcance del presente documento comprende la totalidad del sistema de gestión desarrollado para la empresa funeraria, incluyendo la administración de solicitudes de afiliación, socios, núcleos familiares, pagos, espacios funerarios y administración de usuarios.
+La información aquí contenida será utilizada por el equipo de desarrollo, los responsables del proyecto y el cliente para validar que el sistema satisfaga las necesidades planteadas durante el análisis del problema.
+
+
+2. Alcance del producto / Software
+
+El Sistema de Gestión Funeraria "El Buen Descanso" tiene como objetivo informatizar los procesos administrativos relacionados con la gestión de socios y los servicios funerarios ofrecidos por la empresa.
+Actualmente gran parte de la información se administra mediante registros manuales, lo que dificulta el control de los socios, el seguimiento de los pagos y la asignación de espacios funerarios. El sistema propuesto permitirá centralizar toda esta información en una única base de datos, reduciendo errores, agilizando los procesos administrativos y mejorando la calidad del servicio brindado.
+Entre las principales funcionalidades del sistema se encuentran:
+Registro y evaluación de solicitudes de afiliación.
+Administración de personas y socios.
+Gestión del núcleo familiar de cada socio.
+Registro y consulta de pagos mensuales.
+Administración de espacios funerarios.
+Gestión de usuarios administradores.
+Registro de accesos al sistema.
+Consulta de información y generación de reportes.
+La implementación del sistema permitirá mejorar el control de la información, aumentar la seguridad de los datos, optimizar los tiempos de atención y facilitar la toma de decisiones por parte de la administración.
+Los objetivos específicos del proyecto son:
+Automatizar los procesos administrativos de la empresa.
+Reducir errores en el registro de información.
+Disponer de información actualizada en tiempo real.
+Mejorar la trazabilidad de las operaciones realizadas por los administradores.
+Proporcionar un sistema seguro mediante autenticación de usuarios y doble factor de autenticación (2FA).
+Facilitar futuras ampliaciones del sistema mediante una arquitectura basada en una base de datos relacional.
+
+
+7. Requerimientos Funcionales
+
+7.1 Gestión de Solicitudes de Afiliación
+
+Descripción
+Este módulo permitirá registrar las solicitudes de afiliación realizadas por personas interesadas en contratar los servicios de la empresa funeraria. Además, permitirá que un administrador evalúe dichas solicitudes y decida si son aprobadas o rechazadas.
+Prioridad
+Alta.
+Acción iniciadora y comportamiento esperado
+La funcionalidad comienza cuando una persona interesada completa el formulario de afiliación. El sistema registrará la solicitud con estado Pendiente, almacenará la información ingresada y notificará al administrador para su evaluación. Posteriormente, el administrador podrá aprobar o rechazar la solicitud, quedando registrada la decisión.
+Requerimientos funcionales
+RF-01 El sistema deberá permitir registrar una solicitud de afiliación.
+RF-02 El sistema deberá asignar un identificador único a cada solicitud registrada.
+RF-03 El sistema deberá almacenar los datos personales del solicitante.
+RF-04 El sistema deberá registrar la fecha en que fue realizada la solicitud.
+RF-05 El sistema deberá registrar el estado de la solicitud (Pendiente, Aprobada o Rechazada).
+RF-06 El sistema deberá permitir consultar una solicitud mediante su identificador.
+RF-07 El sistema deberá permitir modificar el estado de una solicitud únicamente a usuarios administradores.
+
+7.2 Gestión de Personas
+
+Descripción
+Este módulo administrará toda la información personal de las personas registradas en el sistema, independientemente de que sean socios o integrantes de un núcleo familiar.
+Prioridad
+Alta.
+Acción iniciadora y comportamiento esperado
+El administrador selecciona la opción Registrar Persona e ingresa los datos correspondientes. El sistema verificará que la persona no exista previamente y almacenará la información en la base de datos.
+Requerimientos funcionales
+RF-08 El sistema deberá permitir registrar personas.
+RF-09 El sistema deberá permitir modificar la información de una persona.
+RF-10 El sistema deberá permitir consultar personas registradas.
+RF-11 El sistema deberá impedir registrar dos personas con el mismo documento de identidad.
+
+7.3 Gestión de Socios
+
+Descripción
+Este módulo permitirá administrar la información correspondiente a los socios titulares de la empresa.
+Prioridad
+Alta.
+Acción iniciadora y comportamiento esperado
+Cuando una solicitud haya sido aprobada, el administrador podrá registrar al solicitante como socio. El sistema generará automáticamente el registro correspondiente y lo asociará con su núcleo familiar.
+Requerimientos funcionales
+RF-12 El sistema deberá permitir registrar socios provenientes de solicitudes aprobadas.
+RF-13 El sistema deberá almacenar la fecha de ingreso del socio.
+RF-14 El sistema deberá permitir modificar la información del socio.
+RF-15 El sistema deberá permitir consultar los datos del socio.
+RF-16 El sistema deberá impedir registrar un socio sin una solicitud aprobada.
+
+7.4 Gestión del Núcleo Familiar
+
+Descripción
+Este módulo permitirá administrar las personas que forman parte del núcleo familiar asociado a un socio.
+Prioridad
+Alta.
+Acción iniciadora y comportamiento esperado
+El administrador seleccionará un socio e incorporará nuevos integrantes indicando el vínculo familiar correspondiente. El sistema registrará la información y la asociará al socio titular.
+Requerimientos funcionales
+RF-17 El sistema deberá permitir agregar integrantes al núcleo familiar.
+RF-18 El sistema deberá permitir eliminar integrantes del núcleo familiar.
+RF-19 El sistema deberá permitir modificar el vínculo familiar de un integrante.
+RF-20 El sistema deberá permitir consultar todos los integrantes asociados a un socio.
+
+7.5 Gestión de Pagos
+
+Descripción
+Este módulo permitirá registrar y consultar los pagos realizados por los socios.
+Prioridad
+Alta.
+Acción iniciadora y comportamiento esperado
+El administrador registrará un pago indicando el socio, la fecha y el importe abonado. El sistema almacenará la información y actualizará el historial de pagos del socio.
+Requerimientos funcionales
+RF-21 El sistema deberá registrar pagos realizados por los socios.
+RF-22 El sistema deberá almacenar el monto abonado.
+RF-23 El sistema deberá registrar la fecha del pago.
+RF-24 El sistema deberá permitir consultar el historial de pagos de un socio.
+RF-25 El sistema deberá emitir un comprobante del pago registrado.
+
+7.6 Gestión de Espacios Funerarios
+
+Descripción
+Este módulo administrará los espacios funerarios disponibles en el cementerio.
+Prioridad
+Alta.
+Acción iniciadora y comportamiento esperado
+El administrador seleccionará un espacio disponible y lo asignará a un socio. El sistema verificará que el espacio no se encuentre ocupado antes de confirmar la asignación.
+Requerimientos funcionales
+RF-26 El sistema deberá registrar espacios funerarios.
+RF-27 El sistema deberá permitir consultar la disponibilidad de espacios.
+RF-28 El sistema deberá asignar un espacio funerario a un socio.
+RF-29 El sistema deberá impedir asignar un espacio ya ocupado.
+RF-30 El sistema deberá permitir modificar la información de un espacio funerario.
+
+7.7 Administración del Sistema
+
+Descripción
+Este módulo permitirá administrar los usuarios con permisos para operar el sistema.
+Prioridad
+Media.
+Acción iniciadora y comportamiento esperado
+El administrador de seguridad registrará nuevos usuarios, asignará permisos y administrará las credenciales de acceso.
+Requerimientos funcionales
+RF-31 El sistema deberá permitir registrar administradores.
+RF-32 El sistema deberá permitir modificar la información de los administradores.
+RF-33 El sistema deberá permitir cambiar contraseñas.
+RF-34 El sistema deberá permitir asignar permisos según el rol del usuario.
+7.8 Seguridad y Control de Accesos
+
+Descripción
+Este módulo garantizará la autenticación de los usuarios y registrará todas las actividades de acceso al sistema.
+Prioridad
+Alta.
+Acción iniciadora y comportamiento esperado
+El usuario ingresará sus credenciales para acceder al sistema. El sistema validará la autenticación, registrará el acceso en el historial y, cuando corresponda, solicitará un segundo factor de autenticación.
+Requerimientos funcionales
+RF-35 El sistema deberá permitir iniciar sesión mediante usuario y contraseña.
+RF-36 El sistema deberá validar las credenciales del usuario.
+RF-37 El sistema deberá registrar la fecha y hora de cada acceso.
+RF-38 El sistema deberá soportar autenticación mediante doble factor (2FA).
+RF-39 El sistema deberá permitir cerrar la sesión de forma segura.
+
+10. Requerimientos No Funcionales
+
+10.1 Rendimiento
+RNF-01
+El sistema deberá responder cualquier consulta en un tiempo inferior a tres segundos para el 95 % de las operaciones normales.
+RNF-02
+El sistema deberá soportar al menos 50 usuarios concurrentes sin degradar significativamente su rendimiento.
+
+10.2 Seguridad
+RNF-03
+El acceso al sistema deberá realizarse mediante autenticación de usuario y contraseña.
+RNF-04
+El sistema deberá permitir la autenticación mediante doble factor (2FA).
+RNF-05
+Las contraseñas deberán almacenarse utilizando algoritmos de hash seguros.
+RNF-06
+Todas las operaciones importantes deberán registrarse en un historial de auditoría.
+
+10.3 Disponibilidad
+RNF-07
+El sistema deberá estar disponible el 99 % del tiempo durante el horario laboral.
+
+10.4 Confiabilidad
+RNF-08
+El sistema deberá realizar respaldos automáticos de la base de datos cada 24 horas.
+RNF-09
+El sistema deberá permitir la recuperación de la información ante fallos del servidor.
+
+10.5 Usabilidad
+RNF-10
+Un usuario administrador deberá aprender a utilizar el sistema con una capacitación menor a dos horas.
+RNF-11
+La interfaz deberá mantener un diseño uniforme en todas las pantallas.
+
+10.6 Mantenibilidad
+RNF-12
+El sistema deberá desarrollarse utilizando una arquitectura modular que facilite futuras modificaciones.
+RNF-13
+La documentación técnica deberá mantenerse actualizada durante todo el ciclo de vida del proyecto.
+
