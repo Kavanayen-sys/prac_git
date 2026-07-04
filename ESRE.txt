@@ -224,3 +224,142 @@ El sistema deberá desarrollarse utilizando una arquitectura modular que facilit
 RNF-13
 La documentación técnica deberá mantenerse actualizada durante todo el ciclo de vida del proyecto.
 
+=======
+5. Entorno Operativo
+El sistema para la empresa "El Buen Descanso" utiliza una arquitectura 
+"cliente-servidor" lo que permite el acceso desde cualquier lugar si se
+cuenta con un equipo autorizado o las credenciales necesarias. Además se
+aprovechan los recursos ya existentes de la empresa, como la página web y
+el servidor de la página.
+
+Hardware:
+El sistema será compatible con:
+- Computadoras y portátiles
+- Acceso mediante celulares
+- Impresoras para la impresión de facturas y reportes
+
+Requerimientos del servidor:
+- Procesador con al menos dos núcleos de 2ghz.
+- 8GB de memoria ram
+- 256GB de almacenamiento
+- Conexión permanente a la red
+
+Sistema Operativo
+El sistema operativo del servidor elegido es Rocky Linux 10.
+
+Base de Datos
+Se utilizará el gestor de Base de Datos MySQL mediante la interfaz
+phpMyAdmin
+
+Navegadores web
+El acceso podrá realizarse mediante el navegador Firefox o Navegadores
+basados en Chromium
+
+
+6. Reglas del Negocio
+Se define regla de negocio como condición que el sistema debe cumplir.
+
+RN1 - Afiliación
+Todos los interesados en ser socios que no sean socios desde antes 
+de la implementación del sistema.
+deberan realizar el fórmulario de interés. No se puede registrar a un 
+socio sin que se apruebe su solicitud del fórmulario.
+La fecha de realización del fórmulario no puede ser superior a la fecha
+actual.
+
+RN2 - Restricción de edad
+Todo interesado deberá ser mayor de 18 años al momento de realizar
+la solicitud de Afiliación
+
+RN3 - Disponibilidad de espacios funerarios
+Los espacios funerarios puede estar disponible, ocupado o reservado.
+En caso de no estar disponible, no podrá ser asignado hasta que quede libre.
+
+RN4 - Pagos
+Solo se puede recibir pagos provenientes de los socios, la fecha de pago no puede
+ser anterior a la fecha de ingreso del socio. Todo pago debe tener un motivo.
+
+RN5 - Grupos familiares
+Un socio puede tener solo un núcleo familiar. Una persona no puede ser
+parte de más de un núcleo familiar. 
+
+
+7. Requerimientos de interfaces externas
+
+Interfaz de usuario
+El sistema debe tener una interfaz intuitiva y optimizada para funcionar
+incluso en dispositivos de baja potencia. Además deberá ser responsiva a
+diferentes resoluciones.
+Estará compuesta por:
+- Landing page
+- Página de fórmulario de interés
+- Panel principal
+- Sección de reportes
+- Historial de pagos
+- Sección de modificación de datos
+- Mensajes de confirmación o denegación
+
+Interfaces de Hardware
+El sistema estará disponible para su acceso en los siguientes equipos:
+- Computadoras y portátiles
+- Celulares y dispositivos con android/iOS (solo para acceso de socio e interesado)
+- Impresoras
+
+Interfaces de Software
+El sistema integrará los siguientes sistemas:
+Sistema Operativo
+- El servidor (Linux) podrá interactuar con cualquier sistema que
+sea compatible con los navegadores actuales (Linux, Windows, Mac, entre otros)
+
+Servidor web
+El sistema integrará tecnología Apache 
+
+Gestor de Base de Datos
+MySQL
+
+Desarrollo
+Se utilizará Python
+
+8. Glosario
+Python - lenguaje de programación de alto nivel
+Hardware - componentes físicos de un sistema
+Software - componentes virtuales de un sistema
+log - registro de procesos, comunmente guardados en un archivo 
+2fa - autenticación de dos factores, significa que se necesita otro medio de
+autenticación además de una contraseña
+Ram - pieza de hardware que guarda datos temporales
+HTTPS - Protocolo seguro utilizado para la comunicación cliente-servidor
+Linux - Sistema operativo popular entre los servidores
+Administrador - Usuario con privilegios para gestionar el sistema
+Afiliación - proceso mediante el cual una persona solicita incorporarse como socio
+Auditoría - Regsitro de las operaciones realizadas por los usuarios
+Espacio funerario - Parcela o nicho disponible dentro del cementerio administrado por la empresa
+Núcleo Familiar - Grupo de personas asociadas a un titular
+Socio - Persona afiliada a la empresa funeraria con derecho a usar los servicios de la misma
+
+
+9. Requerimientos no funcionales
+RNF1 - El sistema deberá responder consultas en menos de tres segundos para
+el 05% de las operaciones
+RNF2 - El sistema deberá soportar 30 usuarios utilizando el servicio simultáneamente
+sin perjudicar ampliamente el rendimiento
+RNF3 - El sistema debe estar disponible el 99% del tiempo que no se esté realizando
+mantenimiento
+RNF4 - Los usuarios deberán estar protegidos con 2fa
+RNF5 - Las contraseñas deben ser hasheadas
+RNF6 - Todas las operaciones y acciones deben ser registradas 
+RNF7 - Se deben realizar respaldos automáticos cada 24 horas y se deberán tener
+por lo menos dos lugares de respaldos
+RNF8 - El sistema mantendrá redundancia controlada de datos
+RNF9 - El sistema debe permitir la reversión a la última copia de seguridad en
+caso de fallo
+RNF10 - Se deberá crear documentación con cada ampliación del sistema
+
+11. Requerimientos funcionales
+RF1 - El sistema deberá permitir el registro de usuarios y espacios funerarios
+RF2 - El sistema deberá permitir la persistencia de datos
+RF3 - El sistema deberá mantener seguimiento de los pagos
+RF4 - El sistema deberá permitir la realización de los fórmularios de interés
+RF5 - El sistema deberá enviar automáticamente la resolución de las solicitudes de Afiliación
+RF6 - El sistema generará reportes y estadísticas automáticamente
+RF7 - El sistema permitirá la creación de consultas
